@@ -77,7 +77,6 @@ class BLEManager {
     
     // 接続解除
     func disconnect() {
-        stop()
         bleDevice.disconnectDevice()
     }
     

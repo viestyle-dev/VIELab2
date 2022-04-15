@@ -234,10 +234,13 @@ extension ViewController: BLEDelegate {
     func didDisconnect() {
         print("did disconnect")
         
+        BLEManager.shared.stop()
+        BLEManager.shared.isStarted = false
         BLEManager.shared.isConnected = false
         DispatchQueue.main.async {
             self.connectBtn.setTitle("Connect", for: .normal)
             self.scanBtn.isEnabled = true
+            self.startBtn.setTitle("Start", for: .normal)
             self.startBtn.isEnabled = false
         }
     }
