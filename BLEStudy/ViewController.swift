@@ -21,6 +21,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var deviceNameLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var batteryLabel: UILabel!
+    @IBOutlet weak var leftValueLabel: UILabel!
+    @IBOutlet weak var rightValueLabel: UILabel!
     
     var deviceNameLabelText: String = "DeviceName : " {
         willSet {
@@ -40,6 +42,20 @@ class ViewController: UIViewController {
         willSet {
             DispatchQueue.main.async {
                 self.statusLabel.text = newValue
+            }
+        }
+    }
+    var leftValueLabelInt: Int32 = 0 {
+        willSet {
+            DispatchQueue.main.async {
+                self.leftValueLabel.text = String(newValue)
+            }
+        }
+    }
+    var rightValueLabelInt: Int32 = 0 {
+        willSet {
+            DispatchQueue.main.async {
+                self.rightValueLabel.text = String(newValue)
             }
         }
     }
@@ -185,6 +201,8 @@ extension ViewController: BLEDelegate {
         let rightRaw = right
         
         // update eegSamples
+        leftValueLabelInt = left
+        rightValueLabelInt = right
         updateLeftSamples(value: leftRaw)
         updateRightSamples(value: rightRaw)
         updateGraph()
