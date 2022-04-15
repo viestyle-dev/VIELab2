@@ -1,0 +1,429 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9546F1542805087C00D102BC /* DeviceSelectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9546F1532805087C00D102BC /* DeviceSelectTableViewController.swift */; };
+		9546F15628050A8A00D102BC /* BLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9546F15528050A8A00D102BC /* BLEManager.swift */; };
+		95D3AC8527D48C23003F4C64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D3AC8427D48C23003F4C64 /* AppDelegate.swift */; };
+		95D3AC8727D48C23003F4C64 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D3AC8627D48C23003F4C64 /* SceneDelegate.swift */; };
+		95D3AC8927D48C23003F4C64 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D3AC8827D48C23003F4C64 /* ViewController.swift */; };
+		95D3AC8C27D48C23003F4C64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95D3AC8A27D48C23003F4C64 /* Main.storyboard */; };
+		95D3AC8E27D48C24003F4C64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95D3AC8D27D48C24003F4C64 /* Assets.xcassets */; };
+		95D3AC9127D48C24003F4C64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95D3AC8F27D48C24003F4C64 /* LaunchScreen.storyboard */; };
+		95D3AC9F27D48E85003F4C64 /* libBLE.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95D3AC9B27D48CC0003F4C64 /* libBLE.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9546F1532805087C00D102BC /* DeviceSelectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceSelectTableViewController.swift; sourceTree = "<group>"; };
+		9546F15528050A8A00D102BC /* BLEManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEManager.swift; sourceTree = "<group>"; };
+		95D3AC8127D48C23003F4C64 /* BLEStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLEStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		95D3AC8427D48C23003F4C64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		95D3AC8627D48C23003F4C64 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		95D3AC8827D48C23003F4C64 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		95D3AC8B27D48C23003F4C64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		95D3AC8D27D48C24003F4C64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		95D3AC9027D48C24003F4C64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		95D3AC9227D48C24003F4C64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95D3AC9B27D48CC0003F4C64 /* libBLE.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBLE.a; sourceTree = "<group>"; };
+		95D3ACA127D4995F003F4C64 /* BLEDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLEDevice.h; sourceTree = "<group>"; };
+		95D3ACA227D49970003F4C64 /* BLEDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLEDelegate.h; sourceTree = "<group>"; };
+		95D3ACA427D49B53003F4C64 /* BLEStudy-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BLEStudy-Bridging-Header.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		95D3AC7E27D48C23003F4C64 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95D3AC9F27D48E85003F4C64 /* libBLE.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		95D3AC7827D48C23003F4C64 = {
+			isa = PBXGroup;
+			children = (
+				95D3AC8327D48C23003F4C64 /* BLEStudy */,
+				95D3AC8227D48C23003F4C64 /* Products */,
+				95D3ACA427D49B53003F4C64 /* BLEStudy-Bridging-Header.h */,
+			);
+			sourceTree = "<group>";
+		};
+		95D3AC8227D48C23003F4C64 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				95D3AC8127D48C23003F4C64 /* BLEStudy.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		95D3AC8327D48C23003F4C64 /* BLEStudy */ = {
+			isa = PBXGroup;
+			children = (
+				95D3AC9927D48CB5003F4C64 /* BLE */,
+				95D3AC9827D48C4B003F4C64 /* Resources */,
+				95D3AC8427D48C23003F4C64 /* AppDelegate.swift */,
+				95D3AC8627D48C23003F4C64 /* SceneDelegate.swift */,
+				95D3AC8827D48C23003F4C64 /* ViewController.swift */,
+				9546F1532805087C00D102BC /* DeviceSelectTableViewController.swift */,
+				9546F15528050A8A00D102BC /* BLEManager.swift */,
+				95D3AC8A27D48C23003F4C64 /* Main.storyboard */,
+				95D3AC8D27D48C24003F4C64 /* Assets.xcassets */,
+				95D3AC8F27D48C24003F4C64 /* LaunchScreen.storyboard */,
+				95D3AC9227D48C24003F4C64 /* Info.plist */,
+			);
+			path = BLEStudy;
+			sourceTree = "<group>";
+		};
+		95D3AC9827D48C4B003F4C64 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		95D3AC9927D48CB5003F4C64 /* BLE */ = {
+			isa = PBXGroup;
+			children = (
+				95D3ACA127D4995F003F4C64 /* BLEDevice.h */,
+				95D3AC9B27D48CC0003F4C64 /* libBLE.a */,
+				95D3ACA227D49970003F4C64 /* BLEDelegate.h */,
+			);
+			path = BLE;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		95D3AC8027D48C23003F4C64 /* BLEStudy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 95D3AC9527D48C24003F4C64 /* Build configuration list for PBXNativeTarget "BLEStudy" */;
+			buildPhases = (
+				95D3AC7D27D48C23003F4C64 /* Sources */,
+				95D3AC7E27D48C23003F4C64 /* Frameworks */,
+				95D3AC7F27D48C23003F4C64 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BLEStudy;
+			productName = BLEStudy;
+			productReference = 95D3AC8127D48C23003F4C64 /* BLEStudy.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		95D3AC7927D48C23003F4C64 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					95D3AC8027D48C23003F4C64 = {
+						CreatedOnToolsVersion = 13.2.1;
+						LastSwiftMigration = 1320;
+					};
+				};
+			};
+			buildConfigurationList = 95D3AC7C27D48C23003F4C64 /* Build configuration list for PBXProject "BLEStudy" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 95D3AC7827D48C23003F4C64;
+			productRefGroup = 95D3AC8227D48C23003F4C64 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				95D3AC8027D48C23003F4C64 /* BLEStudy */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		95D3AC7F27D48C23003F4C64 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95D3AC9127D48C24003F4C64 /* LaunchScreen.storyboard in Resources */,
+				95D3AC8E27D48C24003F4C64 /* Assets.xcassets in Resources */,
+				95D3AC8C27D48C23003F4C64 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		95D3AC7D27D48C23003F4C64 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95D3AC8927D48C23003F4C64 /* ViewController.swift in Sources */,
+				95D3AC8527D48C23003F4C64 /* AppDelegate.swift in Sources */,
+				9546F15628050A8A00D102BC /* BLEManager.swift in Sources */,
+				95D3AC8727D48C23003F4C64 /* SceneDelegate.swift in Sources */,
+				9546F1542805087C00D102BC /* DeviceSelectTableViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		95D3AC8A27D48C23003F4C64 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				95D3AC8B27D48C23003F4C64 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		95D3AC8F27D48C24003F4C64 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				95D3AC9027D48C24003F4C64 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		95D3AC9327D48C24003F4C64 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		95D3AC9427D48C24003F4C64 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		95D3AC9627D48C24003F4C64 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 6G9A5395V2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/BLEStudy/Analyze",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BLEStudy/Info.plist;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/BLEStudy/Resources",
+					"$(PROJECT_DIR)/BLEStudy/BLE",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.miokato.BLEStudy;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "BLEStudy-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = YES;
+			};
+			name = Debug;
+		};
+		95D3AC9727D48C24003F4C64 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 6G9A5395V2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/BLEStudy/Analyze",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BLEStudy/Info.plist;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/BLEStudy/Resources",
+					"$(PROJECT_DIR)/BLEStudy/BLE",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.miokato.BLEStudy;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "BLEStudy-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		95D3AC7C27D48C23003F4C64 /* Build configuration list for PBXProject "BLEStudy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95D3AC9327D48C24003F4C64 /* Debug */,
+				95D3AC9427D48C24003F4C64 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		95D3AC9527D48C24003F4C64 /* Build configuration list for PBXNativeTarget "BLEStudy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95D3AC9627D48C24003F4C64 /* Debug */,
+				95D3AC9727D48C24003F4C64 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 95D3AC7927D48C23003F4C64 /* Project object */;
+}
