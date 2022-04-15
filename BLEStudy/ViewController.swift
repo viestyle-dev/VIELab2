@@ -6,8 +6,12 @@
 //
 
 import UIKit
+import SpriteKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var leftGraphView: GraphView!
+    @IBOutlet weak var rightGraphView: GraphView!
     
     @IBOutlet weak var scanBtn: UIButton!
     @IBOutlet weak var connectBtn: UIButton!
@@ -21,11 +25,30 @@ class ViewController: UIViewController {
     
     var deviceNameLabelText: String = "DeviceName : " {
         willSet {
-            deviceNameLabel.text = newValue
+            DispatchQueue.main.async {
+                self.deviceNameLabel.text = newValue
+            }
+        }
+    }
+    var batteryLabelText: String = "Battery : - [%]" {
+        willSet {
+            DispatchQueue.main.async {
+                self.batteryLabel.text = newValue
+            }
+        }
+    }
+    var statusLabelText: String = "Status : NotConnected" {
+        willSet {
+            DispatchQueue.main.async {
+                self.statusLabel.text = newValue
+            }
         }
     }
     
     var isConnecting: Bool = false
+    
+    var rightEEGSamples = [Int32](repeating: 0, count: 600)
+    var leftEEGSamples = [Int32](repeating: 0, count: 600)
     
     // MARK: - View
     override func viewDidLoad() {
@@ -35,6 +58,12 @@ class ViewController: UIViewController {
         
         startBtn.isEnabled = false
         clearBtn.isEnabled = false
+        
+        let rightValues = rightEEGSamples.map { Float($0) }
+        let leftValues = leftEEGSamples.map { Float($0) }
+
+        leftGraphView.update(values: leftValues)
+        rightGraphView.update(values: rightValues)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -84,6 +113,27 @@ class ViewController: UIViewController {
         BLEManager.shared.clear()
         deviceNameLabelText = "DeviceName : Unknown"
     }
+    
+    // MARK: - Utils
+    /// チャートを更新
+    func updateGraph() {
+        let leftValues = leftEEGSamples.map { Float($0) }
+        let rightValues = rightEEGSamples.map { Float($0) }
+
+        leftGraphView.update(values: leftValues)
+        rightGraphView.update(values: rightValues)
+    }
+    
+    /// 左耳のサンプルリストの更新
+    func updateLeftSamples(value: Int32) {
+        leftEEGSamples.removeFirst()
+        leftEEGSamples.append(value)
+    }
+    
+    func updateRightSamples(value: Int32) {
+        rightEEGSamples.removeFirst()
+        rightEEGSamples.append(value)
+    }
 }
 
 /// BLEデバイスのコールバック
@@ -129,16 +179,25 @@ extension ViewController: BLEDelegate {
     /// 信号を受信
     func eegSampleLeft(_ left: Int32, right: Int32) {
         print("Receive Left: \(left), Right: \(right)")
+        let leftRaw = left
+        let rightRaw = right
+        
+        // update eegSamples
+        updateLeftSamples(value: leftRaw)
+        updateRightSamples(value: rightRaw)
+        updateGraph()
     }
     
     /// センサーの状態が変化した時のコールバック
     func sensorStatus(_ status: Int32) {
         print("Sensor status : \(status)")
+        statusLabelText = "Status : \(EEGStatus.get(rawValue: UInt8(status)).description)"
     }
     
     /// バッテリー
     func battery(_ percent: Int32) {
         print("Battery : \(percent)")
+        batteryLabelText = "Battery : \(percent) [%]"
     }
 }
 

@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		9546F1542805087C00D102BC /* DeviceSelectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9546F1532805087C00D102BC /* DeviceSelectTableViewController.swift */; };
 		9546F15628050A8A00D102BC /* BLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9546F15528050A8A00D102BC /* BLEManager.swift */; };
+		956015872809021100F68F66 /* EEGStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956015862809021100F68F66 /* EEGStatus.swift */; };
+		9560158B2809039C00F68F66 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956015892809039C00F68F66 /* GraphView.swift */; };
+		9560158C2809039C00F68F66 /* GraphScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9560158A2809039C00F68F66 /* GraphScene.swift */; };
 		95D3AC8527D48C23003F4C64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D3AC8427D48C23003F4C64 /* AppDelegate.swift */; };
 		95D3AC8727D48C23003F4C64 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D3AC8627D48C23003F4C64 /* SceneDelegate.swift */; };
 		95D3AC8927D48C23003F4C64 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D3AC8827D48C23003F4C64 /* ViewController.swift */; };
@@ -21,6 +24,9 @@
 /* Begin PBXFileReference section */
 		9546F1532805087C00D102BC /* DeviceSelectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceSelectTableViewController.swift; sourceTree = "<group>"; };
 		9546F15528050A8A00D102BC /* BLEManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEManager.swift; sourceTree = "<group>"; };
+		956015862809021100F68F66 /* EEGStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EEGStatus.swift; sourceTree = "<group>"; };
+		956015892809039C00F68F66 /* GraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		9560158A2809039C00F68F66 /* GraphScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphScene.swift; sourceTree = "<group>"; };
 		95D3AC8127D48C23003F4C64 /* BLEStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLEStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95D3AC8427D48C23003F4C64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95D3AC8627D48C23003F4C64 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +53,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		956015882809039C00F68F66 /* Graph */ = {
+			isa = PBXGroup;
+			children = (
+				956015892809039C00F68F66 /* GraphView.swift */,
+				9560158A2809039C00F68F66 /* GraphScene.swift */,
+			);
+			path = Graph;
+			sourceTree = "<group>";
+		};
 		95D3AC7827D48C23003F4C64 = {
 			isa = PBXGroup;
 			children = (
@@ -67,6 +82,7 @@
 		95D3AC8327D48C23003F4C64 /* BLEStudy */ = {
 			isa = PBXGroup;
 			children = (
+				956015882809039C00F68F66 /* Graph */,
 				95D3AC9927D48CB5003F4C64 /* BLE */,
 				95D3AC9827D48C4B003F4C64 /* Resources */,
 				95D3AC8427D48C23003F4C64 /* AppDelegate.swift */,
@@ -74,6 +90,7 @@
 				95D3AC8827D48C23003F4C64 /* ViewController.swift */,
 				9546F1532805087C00D102BC /* DeviceSelectTableViewController.swift */,
 				9546F15528050A8A00D102BC /* BLEManager.swift */,
+				956015862809021100F68F66 /* EEGStatus.swift */,
 				95D3AC8A27D48C23003F4C64 /* Main.storyboard */,
 				95D3AC8D27D48C24003F4C64 /* Assets.xcassets */,
 				95D3AC8F27D48C24003F4C64 /* LaunchScreen.storyboard */,
@@ -173,7 +190,10 @@
 			files = (
 				95D3AC8927D48C23003F4C64 /* ViewController.swift in Sources */,
 				95D3AC8527D48C23003F4C64 /* AppDelegate.swift in Sources */,
+				9560158B2809039C00F68F66 /* GraphView.swift in Sources */,
+				9560158C2809039C00F68F66 /* GraphScene.swift in Sources */,
 				9546F15628050A8A00D102BC /* BLEManager.swift in Sources */,
+				956015872809021100F68F66 /* EEGStatus.swift in Sources */,
 				95D3AC8727D48C23003F4C64 /* SceneDelegate.swift in Sources */,
 				9546F1542805087C00D102BC /* DeviceSelectTableViewController.swift in Sources */,
 			);
