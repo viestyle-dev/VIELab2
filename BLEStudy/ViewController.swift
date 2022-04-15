@@ -21,7 +21,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var deviceNameLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var batteryLabel: UILabel!
-    @IBOutlet weak var otherLabel: UILabel!
     
     var deviceNameLabelText: String = "DeviceName : " {
         willSet {
@@ -157,7 +156,10 @@ extension ViewController: BLEDelegate {
         BLEManager.shared.stopScan()
         
         isConnecting = true
-        deviceNameLabelText = BLEManager.shared.selectedDeviceID ?? ""
+        if let deviceID = BLEManager.shared.selectedDeviceID {
+            let deviceName = "VIE-10004 [\(deviceID.prefix8)]"
+            deviceNameLabelText = deviceName
+        }
         DispatchQueue.main.async {
             self.connectBtn.setTitle("Disconnect", for: .normal)
             self.scanBtn.isEnabled = false

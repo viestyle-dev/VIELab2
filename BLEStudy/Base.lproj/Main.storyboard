@@ -83,16 +83,6 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Other : Unknown" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ud-Dd-GyP">
-                                        <rect key="frame" x="184" y="172" width="180" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="180" id="4xC-CV-URo"/>
-                                            <constraint firstAttribute="height" constant="44" id="s5G-TV-kH0"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Battery : - [%]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFq-Je-2w8">
                                         <rect key="frame" x="184" y="118" width="180" height="44"/>
                                         <constraints>
@@ -114,9 +104,7 @@
                                     <constraint firstItem="QsO-gg-fL5" firstAttribute="top" secondItem="Q8r-E8-5V4" secondAttribute="top" constant="10" id="IbY-sP-Yir"/>
                                     <constraint firstAttribute="trailing" secondItem="EFq-Je-2w8" secondAttribute="trailing" constant="10" id="KmX-w4-gpH"/>
                                     <constraint firstItem="fFU-jO-xPx" firstAttribute="top" secondItem="PEo-Fi-pV2" secondAttribute="bottom" constant="20" id="NCE-vQ-RRg"/>
-                                    <constraint firstItem="1ud-Dd-GyP" firstAttribute="top" secondItem="EFq-Je-2w8" secondAttribute="bottom" constant="10" id="Ngp-4O-uXw"/>
                                     <constraint firstItem="bOL-1N-z9x" firstAttribute="leading" secondItem="Q8r-E8-5V4" secondAttribute="leading" constant="20" id="Rfu-6R-T16"/>
-                                    <constraint firstAttribute="trailing" secondItem="1ud-Dd-GyP" secondAttribute="trailing" constant="10" id="SVp-p5-JBB"/>
                                     <constraint firstItem="fFU-jO-xPx" firstAttribute="leading" secondItem="Q8r-E8-5V4" secondAttribute="leading" constant="20" id="aO4-Aa-8JD"/>
                                     <constraint firstItem="bOL-1N-z9x" firstAttribute="top" secondItem="Q8r-E8-5V4" secondAttribute="top" constant="20" id="eqq-yn-0db"/>
                                     <constraint firstItem="Zlv-QB-RrB" firstAttribute="leading" secondItem="Q8r-E8-5V4" secondAttribute="leading" constant="20" id="gDv-5b-mg3"/>
@@ -182,7 +170,6 @@
                         <outlet property="connectBtn" destination="PEo-Fi-pV2" id="BmF-r5-jeg"/>
                         <outlet property="deviceNameLabel" destination="QsO-gg-fL5" id="gfp-yy-Xxq"/>
                         <outlet property="leftGraphView" destination="4Ti-U3-WBN" id="gCn-TI-3ZK"/>
-                        <outlet property="otherLabel" destination="1ud-Dd-GyP" id="5Fp-OL-odi"/>
                         <outlet property="rightGraphView" destination="6e4-m8-K8u" id="0Xp-iI-AxT"/>
                         <outlet property="scanBtn" destination="bOL-1N-z9x" id="G53-tJ-a6i"/>
                         <outlet property="startBtn" destination="fFU-jO-xPx" id="Mty-UA-biS"/>
