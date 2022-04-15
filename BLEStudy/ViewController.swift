@@ -7,6 +7,7 @@
 
 import UIKit
 import SpriteKit
+import F53OSC
 
 class ViewController: UIViewController {
     
@@ -59,11 +60,10 @@ class ViewController: UIViewController {
             }
         }
     }
-    
-    var isConnecting: Bool = false
-    
     var rightEEGSamples = [Int32](repeating: 0, count: 600)
     var leftEEGSamples = [Int32](repeating: 0, count: 600)
+    
+    let oscClient = F53OSCClient.init()
     
     // MARK: - View
     override func viewDidLoad() {
@@ -79,18 +79,65 @@ class ViewController: UIViewController {
 
         leftGraphView.update(values: leftValues)
         rightGraphView.update(values: rightValues)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.willEnterForeground),
+                                               name: UIApplication.willEnterForegroundNotification,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.didEnterBackground),
+                                               name: UIApplication.didEnterBackgroundNotification,
+                                               object: nil)
     }
     
-    // Viewが表示される前
+    /// Viewが表示される前
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("view controller will apppear")
     }
     
-    // Viewが表示された後
+    /// Viewが表示された後
     override func viewDidAppear(_ animated: Bool) {
         // 自動接続
         BLEManager.shared.connect()
+    }
+    
+    /// -> フォアグラウンド
+    @objc func willEnterForeground() {
+        print("will enter foreground")
+        startOsc()
+    }
+    
+    /// -> バックグラウンド
+    @objc func didEnterBackground() {
+        print("did enter background")
+        stopOsc()
+    }
+    
+    // MARK: - Init
+    /// setup OSC
+    private func setupOsc() {
+        guard let pcOscIP = UserDefaults.standard.string(forKey: "pcOscIP"),
+              let pcOscPortStr = UserDefaults.standard.string(forKey: "pcOscPort"),
+              let pcOscPort = UInt16(pcOscPortStr) else {
+            print("You should setup osc address and port.")
+            return
+        }
+        // osc client
+        oscClient.host = pcOscIP
+        oscClient.port = pcOscPort
+        print("PC OSC IP : \(pcOscIP), Port: \(pcOscPort)")
+    }
+    
+    private func startOsc() {
+        setupOsc()
+        if !oscClient.isConnected {
+            oscClient.connect()
+        }
+    }
+    
+    private func stopOsc() {
+        oscClient.disconnect()
     }
     
     // MARK: - Actions
@@ -207,6 +254,10 @@ extension ViewController: BLEDelegate {
         updateLeftSamples(value: leftRaw)
         updateRightSamples(value: rightRaw)
         updateGraph()
+        
+        // send osc
+        let message = F53OSCMessage(addressPattern: "/brain", arguments: [left, right])
+        oscClient.send(message)
     }
     
     /// センサーの状態が変化した時のコールバック

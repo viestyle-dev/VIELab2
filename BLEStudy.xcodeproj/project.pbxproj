@@ -13,6 +13,7 @@
 		9560158B2809039C00F68F66 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956015892809039C00F68F66 /* GraphView.swift */; };
 		9560158C2809039C00F68F66 /* GraphScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9560158A2809039C00F68F66 /* GraphScene.swift */; };
 		9560158E2809081300F68F66 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9560158D2809081300F68F66 /* Utils.swift */; };
+		956015902809127300F68F66 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9560158F2809127300F68F66 /* Settings.bundle */; };
 		95D3AC8527D48C23003F4C64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D3AC8427D48C23003F4C64 /* AppDelegate.swift */; };
 		95D3AC8727D48C23003F4C64 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D3AC8627D48C23003F4C64 /* SceneDelegate.swift */; };
 		95D3AC8927D48C23003F4C64 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D3AC8827D48C23003F4C64 /* ViewController.swift */; };
@@ -20,15 +21,18 @@
 		95D3AC8E27D48C24003F4C64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95D3AC8D27D48C24003F4C64 /* Assets.xcassets */; };
 		95D3AC9127D48C24003F4C64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95D3AC8F27D48C24003F4C64 /* LaunchScreen.storyboard */; };
 		95D3AC9F27D48E85003F4C64 /* libBLE.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95D3AC9B27D48CC0003F4C64 /* libBLE.a */; };
+		C993D14590B75B0F1F27F842 /* Pods_BLEStudy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3D8C1D719CE26495085BE0C /* Pods_BLEStudy.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		25C9FEB0351E5CF0F1437F7D /* Pods-BLEStudy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLEStudy.release.xcconfig"; path = "Target Support Files/Pods-BLEStudy/Pods-BLEStudy.release.xcconfig"; sourceTree = "<group>"; };
 		9546F1532805087C00D102BC /* DeviceSelectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceSelectTableViewController.swift; sourceTree = "<group>"; };
 		9546F15528050A8A00D102BC /* BLEManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEManager.swift; sourceTree = "<group>"; };
 		956015862809021100F68F66 /* EEGStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EEGStatus.swift; sourceTree = "<group>"; };
 		956015892809039C00F68F66 /* GraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		9560158A2809039C00F68F66 /* GraphScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphScene.swift; sourceTree = "<group>"; };
 		9560158D2809081300F68F66 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		9560158F2809127300F68F66 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		95D3AC8127D48C23003F4C64 /* BLEStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLEStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95D3AC8427D48C23003F4C64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95D3AC8627D48C23003F4C64 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +45,8 @@
 		95D3ACA127D4995F003F4C64 /* BLEDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLEDevice.h; sourceTree = "<group>"; };
 		95D3ACA227D49970003F4C64 /* BLEDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLEDelegate.h; sourceTree = "<group>"; };
 		95D3ACA427D49B53003F4C64 /* BLEStudy-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BLEStudy-Bridging-Header.h"; sourceTree = "<group>"; };
+		ABE622E38EE32188F5CDCFA7 /* Pods-BLEStudy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLEStudy.debug.xcconfig"; path = "Target Support Files/Pods-BLEStudy/Pods-BLEStudy.debug.xcconfig"; sourceTree = "<group>"; };
+		D3D8C1D719CE26495085BE0C /* Pods_BLEStudy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BLEStudy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,12 +55,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				95D3AC9F27D48E85003F4C64 /* libBLE.a in Frameworks */,
+				C993D14590B75B0F1F27F842 /* Pods_BLEStudy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D78A761941027A09BD0DD20 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ABE622E38EE32188F5CDCFA7 /* Pods-BLEStudy.debug.xcconfig */,
+				25C9FEB0351E5CF0F1437F7D /* Pods-BLEStudy.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		956015882809039C00F68F66 /* Graph */ = {
 			isa = PBXGroup;
 			children = (
@@ -67,9 +84,12 @@
 		95D3AC7827D48C23003F4C64 = {
 			isa = PBXGroup;
 			children = (
+				9560158F2809127300F68F66 /* Settings.bundle */,
 				95D3AC8327D48C23003F4C64 /* BLEStudy */,
 				95D3AC8227D48C23003F4C64 /* Products */,
 				95D3ACA427D49B53003F4C64 /* BLEStudy-Bridging-Header.h */,
+				3D78A761941027A09BD0DD20 /* Pods */,
+				F58DBA6E3FD478AA445C0B7A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,6 +139,14 @@
 			path = BLE;
 			sourceTree = "<group>";
 		};
+		F58DBA6E3FD478AA445C0B7A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D3D8C1D719CE26495085BE0C /* Pods_BLEStudy.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -126,9 +154,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 95D3AC9527D48C24003F4C64 /* Build configuration list for PBXNativeTarget "BLEStudy" */;
 			buildPhases = (
+				92E599EDE7C663C4074C066C /* [CP] Check Pods Manifest.lock */,
 				95D3AC7D27D48C23003F4C64 /* Sources */,
 				95D3AC7E27D48C23003F4C64 /* Frameworks */,
 				95D3AC7F27D48C23003F4C64 /* Resources */,
+				33DFCCBA49BA7D15F3289173 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -178,6 +208,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				956015902809127300F68F66 /* Settings.bundle in Resources */,
 				95D3AC9127D48C24003F4C64 /* LaunchScreen.storyboard in Resources */,
 				95D3AC8E27D48C24003F4C64 /* Assets.xcassets in Resources */,
 				95D3AC8C27D48C23003F4C64 /* Main.storyboard in Resources */,
@@ -185,6 +216,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		33DFCCBA49BA7D15F3289173 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BLEStudy/Pods-BLEStudy-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BLEStudy/Pods-BLEStudy-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BLEStudy/Pods-BLEStudy-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		92E599EDE7C663C4074C066C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BLEStudy-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		95D3AC7D27D48C23003F4C64 /* Sources */ = {
@@ -343,6 +416,7 @@
 		};
 		95D3AC9627D48C24003F4C64 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABE622E38EE32188F5CDCFA7 /* Pods-BLEStudy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -386,6 +460,7 @@
 		};
 		95D3AC9727D48C24003F4C64 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25C9FEB0351E5CF0F1437F7D /* Pods-BLEStudy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
