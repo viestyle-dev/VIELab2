@@ -12,14 +12,15 @@ class BLEManager {
     
     var bleDevice = BLEDevice.sharedInstance()!
     
+    // 選択したデバイス
     var selectedDeviceID: String?
+    // 発見したデバイスのリスト
+    var discoverDeivices = [String]()
     
     var isScanning: Bool = false
-    
     var isConnected: Bool = false
     var isStarted: Bool = false
     
-    var discoverDeivices = [String]()
     
     func clear() {
         discoverDeivices.removeAll()
@@ -38,6 +39,7 @@ class BLEManager {
     func selectDevice(deviceID: String) {
         selectedDeviceID = deviceID
     }
+    
     // MARK: - BLE action
     // スキャン開始
     func scan() {
@@ -49,6 +51,15 @@ class BLEManager {
     // スキャン停止
     func stopScan() {
         bleDevice.stopScanDevice()
+    }
+    
+    // 接続をトグル
+    func toggleConnect() {
+        if isConnected {
+            disconnect()
+        } else {
+            connect()
+        }
     }
     
     /// 接続

@@ -81,11 +81,13 @@ class ViewController: UIViewController {
         rightGraphView.update(values: rightValues)
     }
     
+    // Viewが表示される前
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("view controller will apppear")
     }
     
+    // Viewが表示された後
     override func viewDidAppear(_ animated: Bool) {
         // 自動接続
         BLEManager.shared.connect()
@@ -98,22 +100,19 @@ class ViewController: UIViewController {
         vc.presentationController?.delegate = self
         present(vc, animated: true)
         BLEManager.shared.scan()
-        
     }
     
     /// ディスコネクトボタン押下
     @IBAction func onTapConnectBtn(_ sender: UIButton) {
-        if isConnecting {
-            BLEManager.shared.disconnect()
-        } else {
-            BLEManager.shared.connect()
-        }
         print("on tap connect")
+        
+        BLEManager.shared.toggleConnect()
     }
     
     /// スタートボタン押下
     @IBAction func onTapStartBtn(_ sender: UIButton) {
         print("on tap start")
+        
         let isStarted = BLEManager.shared.toggleStart()
         if isStarted {
             startBtn.setTitle("Stop", for: .normal)
@@ -130,7 +129,7 @@ class ViewController: UIViewController {
     }
     
     // MARK: - Utils
-    /// チャートを更新
+    /// グラフを更新
     func updateGraph() {
         let leftValues = leftEEGSamples.map { Float($0) }
         let rightValues = rightEEGSamples.map { Float($0) }
@@ -145,6 +144,7 @@ class ViewController: UIViewController {
         leftEEGSamples.append(value)
     }
     
+    /// 右耳のサンプルリストの更新
     func updateRightSamples(value: Int32) {
         rightEEGSamples.removeFirst()
         rightEEGSamples.append(value)
@@ -169,9 +169,9 @@ extension ViewController: BLEDelegate {
     /// 接続された時のコールバック
     func didConnect() {
         print("did connect")
-        BLEManager.shared.stopScan()
         
-        isConnecting = true
+        BLEManager.shared.stopScan()
+        BLEManager.shared.isConnected = true
         if let deviceID = BLEManager.shared.selectedDeviceID {
             let deviceName = "VIE-10004 [\(deviceID.prefix8)]"
             deviceNameLabelText = deviceName
@@ -186,7 +186,8 @@ extension ViewController: BLEDelegate {
     /// 接続が切れた時のコールバック
     func didDisconnect() {
         print("did disconnect")
-        isConnecting = false
+        
+        BLEManager.shared.isConnected = false
         DispatchQueue.main.async {
             self.connectBtn.setTitle("Connect", for: .normal)
             self.scanBtn.isEnabled = true
