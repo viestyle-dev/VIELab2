@@ -8,6 +8,7 @@
 import UIKit
 import SpriteKit
 import F53OSC
+import Analyze
 
 class ViewController: UIViewController {
     
@@ -19,11 +20,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var startBtn: UIButton!
     @IBOutlet weak var clearBtn: UIButton!
     
+    @IBOutlet weak var hpfSwitch: UISwitch!
+    @IBOutlet weak var hpfPickerView: UIPickerView!
+    let hpfValues: [Double] = Array(stride(from: 0.5, to: 20.5, by: 0.5))
+    
     @IBOutlet weak var deviceNameLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var batteryLabel: UILabel!
     @IBOutlet weak var leftValueLabel: UILabel!
     @IBOutlet weak var rightValueLabel: UILabel!
+    @IBOutlet weak var leftSQLabel: UILabel!
+    @IBOutlet weak var rightSQLabel: UILabel!
     
     var deviceNameLabelText: String = "DeviceName : " {
         willSet {
@@ -60,26 +67,42 @@ class ViewController: UIViewController {
             }
         }
     }
+    var leftSQValue: Int32 = 200 {
+        didSet {
+            leftSQLabel.text = "LeftSQ : \(oldValue)"
+        }
+    }
+    var rightSQValue: Int32 = 200 {
+        didSet {
+            rightSQLabel.text = "RightSQ : \(oldValue)"
+        }
+    }
     var rightEEGSamples = [Int32](repeating: 0, count: 600)
     var leftEEGSamples = [Int32](repeating: 0, count: 600)
     
     let oscClient = F53OSCClient.init()
+    let analyze = Analyze.sharedInstance()!
     
     // MARK: - View
     override func viewDidLoad() {
         super.viewDidLoad()
         
         BLEDevice.sharedInstance().delegate = self
+        analyze.delegate = self
         
+        // Setup UI
         startBtn.isEnabled = false
         clearBtn.isEnabled = false
+        hpfPickerView.delegate = self
+        hpfPickerView.dataSource = self
         
+        // Setup eeg values
         let rightValues = rightEEGSamples.map { Float($0) }
         let leftValues = leftEEGSamples.map { Float($0) }
-
         leftGraphView.update(values: leftValues)
         rightGraphView.update(values: rightValues)
         
+        // Handling to foreground, to background.
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(self.willEnterForeground),
                                                name: UIApplication.willEnterForegroundNotification,
@@ -98,8 +121,9 @@ class ViewController: UIViewController {
     
     /// Viewが表示された後
     override func viewDidAppear(_ animated: Bool) {
-        // 自動接続
-        BLEManager.shared.connect()
+        // フィルタの初期値を3.0とする
+        setFilter(value: 3.0)
+        hpfPickerView.selectRow(5, inComponent: 0, animated: false)
     }
     
     /// -> フォアグラウンド
@@ -115,6 +139,8 @@ class ViewController: UIViewController {
     }
     
     // MARK: - Init
+    
+    // MARK: - OSC
     /// setup OSC
     private func setupOsc() {
         guard let pcOscIP = UserDefaults.standard.string(forKey: "pcOscIP"),
@@ -175,6 +201,18 @@ class ViewController: UIViewController {
         deviceNameLabelText = "DeviceName : Unknown"
     }
     
+    @IBAction func toggleHpfSwitch(_ sender: UISwitch) {
+        let selectedRow = hpfPickerView.selectedRow(inComponent: 0)
+        let hpfValue = hpfValues[selectedRow]
+        if sender.isOn {
+            setFilter(value: hpfValue)
+            print("HPF ON Value : \(hpfValue)")
+        } else {
+            analyze.disableHPFFilter()
+            print("HPF OFF")
+        }
+    }
+    
     // MARK: - Utils
     /// グラフを更新
     func updateGraph() {
@@ -196,9 +234,15 @@ class ViewController: UIViewController {
         rightEEGSamples.removeFirst()
         rightEEGSamples.append(value)
     }
+    
+    /// フィルターをセット
+    func setFilter(value: Double) {
+        analyze.reset()
+        analyze.enableHPFFilter(value)
+    }
 }
 
-/// BLEデバイスのコールバック
+// MARK: - BLEデバイスのコールバック
 extension ViewController: BLEDelegate {
     /// アドバタイズしているデバイスを見つける
     func deviceFound(_ devName: String!, mfgID: String!, deviceID: String!) {
@@ -247,26 +291,52 @@ extension ViewController: BLEDelegate {
     
     /// 信号を受信
     func eegSampleLeft(_ left: Int32, right: Int32) {
-        print("Receive Left: \(left), Right: \(right)")
-        let leftRaw = left
-        let rightRaw = right
+        var leftValue = left
+        var rightValue = right
+        
+        // Filter
+        if hpfSwitch.isOn {
+            leftValue = analyze.doHpfLeft(leftValue)
+            rightValue = analyze.doHpfRight(rightValue)
+        }
         
         // update eegSamples
-        leftValueLabelInt = left
-        rightValueLabelInt = right
-        updateLeftSamples(value: leftRaw)
-        updateRightSamples(value: rightRaw)
+        leftValueLabelInt = leftValue
+        rightValueLabelInt = rightValue
+        updateLeftSamples(value: leftValue)
+        updateRightSamples(value: rightValue)
         updateGraph()
         
         // send osc
-        let message = F53OSCMessage(addressPattern: "/brain", arguments: [left, right])
+        let message = F53OSCMessage(addressPattern: "/brain", arguments: [leftValue, rightValue])
         oscClient.send(message)
+        
+        // Update analyze
+        analyze.update(withRawDataLeft: Double(leftValue))
+        analyze.update(withRawDataRight: Double(rightValue))
     }
     
     /// センサーの状態が変化した時のコールバック
     func sensorStatus(_ status: Int32) {
         print("Sensor status : \(status)")
         statusLabelText = "Status : \(EEGStatus.get(rawValue: UInt8(status)).description)"
+        var left: Int32 = 1
+        var right: Int32 = 1
+        switch (status) {
+            case 0:
+                left = 0
+                right = 0
+            case 1:
+                right = 0;
+            case 2:
+                left = 0;
+            case 3:
+                break;
+            default:
+                break;
+        }
+        analyze.checkOffheadLeft(left)
+        analyze.checkOffheadRight(right)
     }
     
     /// バッテリー
@@ -276,8 +346,55 @@ extension ViewController: BLEDelegate {
     }
 }
 
+// MARK: - Anaylize Delegate
+extension ViewController: AnalyzeDelegate {
+    func eSenseLeftSQ(_ poorSignal: Int32) {
+        leftSQValue = poorSignal
+    }
+    
+    func eSenseRightSQ(_ poorSignal: Int32) {
+        rightSQValue = poorSignal
+    }
+    
+    func frequencyLeft(_ index: UnsafeMutablePointer<Double>!, powerSpectrum power: UnsafeMutablePointer<Double>!) {
+    }
+    
+    func frequencyRight(_ index: UnsafeMutablePointer<Double>!, powerSpectrum power: UnsafeMutablePointer<Double>!) {
+    }
+}
+
+// MARK: - ModalView handle dismiss
 extension ViewController: UIAdaptivePresentationControllerDelegate {
     func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
         print("dismiss")
+    }
+}
+
+// MARK: - PickerView
+extension ViewController: UIPickerViewDelegate {
+    /// PickerViewにデータを入れる
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        let hpfValueStr = String(hpfValues[row])
+        return hpfValueStr
+    }
+        
+    /// PickerViewで値を更新した時、HPFフィルタの値を更新
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if hpfSwitch.isOn {
+            let hpfValue = hpfValues[row]
+            setFilter(value: hpfValue)
+        }
+    }
+}
+
+extension ViewController: UIPickerViewDataSource {
+    /// PickerViewのコンポーネント数
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    /// PickerViewのデータ数 (0.5 ~ 20.0 [0.5刻み])
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return hpfValues.count
     }
 }

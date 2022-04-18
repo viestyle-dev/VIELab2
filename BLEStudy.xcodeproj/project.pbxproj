@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9546F1542805087C00D102BC /* DeviceSelectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9546F1532805087C00D102BC /* DeviceSelectTableViewController.swift */; };
 		9546F15628050A8A00D102BC /* BLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9546F15528050A8A00D102BC /* BLEManager.swift */; };
+		955F81B1280CF07600E4AEA8 /* Analyze.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 955F81B0280CF07600E4AEA8 /* Analyze.framework */; };
 		956015872809021100F68F66 /* EEGStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956015862809021100F68F66 /* EEGStatus.swift */; };
 		9560158B2809039C00F68F66 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956015892809039C00F68F66 /* GraphView.swift */; };
 		9560158C2809039C00F68F66 /* GraphScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9560158A2809039C00F68F66 /* GraphScene.swift */; };
@@ -28,6 +29,7 @@
 		25C9FEB0351E5CF0F1437F7D /* Pods-BLEStudy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLEStudy.release.xcconfig"; path = "Target Support Files/Pods-BLEStudy/Pods-BLEStudy.release.xcconfig"; sourceTree = "<group>"; };
 		9546F1532805087C00D102BC /* DeviceSelectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceSelectTableViewController.swift; sourceTree = "<group>"; };
 		9546F15528050A8A00D102BC /* BLEManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEManager.swift; sourceTree = "<group>"; };
+		955F81B0280CF07600E4AEA8 /* Analyze.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Analyze.framework; sourceTree = "<group>"; };
 		956015862809021100F68F66 /* EEGStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EEGStatus.swift; sourceTree = "<group>"; };
 		956015892809039C00F68F66 /* GraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		9560158A2809039C00F68F66 /* GraphScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphScene.swift; sourceTree = "<group>"; };
@@ -54,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				955F81B1280CF07600E4AEA8 /* Analyze.framework in Frameworks */,
 				95D3AC9F27D48E85003F4C64 /* libBLE.a in Frameworks */,
 				C993D14590B75B0F1F27F842 /* Pods_BLEStudy.framework in Frameworks */,
 			);
@@ -68,9 +71,17 @@
 				ABE622E38EE32188F5CDCFA7 /* Pods-BLEStudy.debug.xcconfig */,
 				25C9FEB0351E5CF0F1437F7D /* Pods-BLEStudy.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		955F81AF280CF07600E4AEA8 /* Analyze */ = {
+			isa = PBXGroup;
+			children = (
+				955F81B0280CF07600E4AEA8 /* Analyze.framework */,
+			);
+			name = Analyze;
+			path = BLEStudy/Analyze;
+			sourceTree = SOURCE_ROOT;
 		};
 		956015882809039C00F68F66 /* Graph */ = {
 			isa = PBXGroup;
@@ -104,6 +115,7 @@
 		95D3AC8327D48C23003F4C64 /* BLEStudy */ = {
 			isa = PBXGroup;
 			children = (
+				955F81AF280CF07600E4AEA8 /* Analyze */,
 				956015882809039C00F68F66 /* Graph */,
 				95D3AC9927D48CB5003F4C64 /* BLE */,
 				95D3AC9827D48C4B003F4C64 /* Resources */,
