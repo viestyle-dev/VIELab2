@@ -81,7 +81,7 @@ class ViewController: UIViewController {
             }
         }
     }
-    var isHpf: Bool = true
+    var isHpf: Bool = false
     var rightEEGSamples = [Int32](repeating: 0, count: 600)
     var leftEEGSamples = [Int32](repeating: 0, count: 600)
     
@@ -127,9 +127,6 @@ class ViewController: UIViewController {
     
     /// Viewが表示された後
     override func viewDidAppear(_ animated: Bool) {
-        // フィルタの初期値を3.0とする
-        setFilter(value: 3.0)
-        hpfPickerView.selectRow(5, inComponent: 0, animated: false)
     }
     
     /// -> フォアグラウンド
