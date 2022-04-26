@@ -8,6 +8,7 @@
 import UIKit
 import SpriteKit
 import F53OSC
+import BLEDevicePackage
 import Analyze
 
 class ViewController: UIViewController {
@@ -92,7 +93,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        BLEDevice.shared.delegate = self
+        BLEDevice.shared.setDelegate(delegate: self)
         analyze.delegate = self
         
         // Setup UI
@@ -140,8 +141,6 @@ class ViewController: UIViewController {
         print("did enter background")
         stopOsc()
     }
-    
-    // MARK: - Init
     
     // MARK: - OSC
     /// setup OSC
