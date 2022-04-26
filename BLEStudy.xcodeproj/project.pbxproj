@@ -21,7 +21,8 @@
 		95D3AC8C27D48C23003F4C64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95D3AC8A27D48C23003F4C64 /* Main.storyboard */; };
 		95D3AC8E27D48C24003F4C64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95D3AC8D27D48C24003F4C64 /* Assets.xcassets */; };
 		95D3AC9127D48C24003F4C64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95D3AC8F27D48C24003F4C64 /* LaunchScreen.storyboard */; };
-		95D3AC9F27D48E85003F4C64 /* libBLE.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95D3AC9B27D48CC0003F4C64 /* libBLE.a */; };
+		95D4D3D4281785DF0082ADC4 /* BLEDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D4D3D2281785DF0082ADC4 /* BLEDevice.swift */; };
+		95D4D3D5281785DF0082ADC4 /* BLEDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D4D3D3281785DF0082ADC4 /* BLEDelegate.swift */; };
 		C993D14590B75B0F1F27F842 /* Pods_BLEStudy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3D8C1D719CE26495085BE0C /* Pods_BLEStudy.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,10 +44,9 @@
 		95D3AC8D27D48C24003F4C64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95D3AC9027D48C24003F4C64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		95D3AC9227D48C24003F4C64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		95D3AC9B27D48CC0003F4C64 /* libBLE.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBLE.a; sourceTree = "<group>"; };
-		95D3ACA127D4995F003F4C64 /* BLEDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLEDevice.h; sourceTree = "<group>"; };
-		95D3ACA227D49970003F4C64 /* BLEDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLEDelegate.h; sourceTree = "<group>"; };
 		95D3ACA427D49B53003F4C64 /* BLEStudy-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BLEStudy-Bridging-Header.h"; sourceTree = "<group>"; };
+		95D4D3D2281785DF0082ADC4 /* BLEDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEDevice.swift; sourceTree = "<group>"; };
+		95D4D3D3281785DF0082ADC4 /* BLEDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEDelegate.swift; sourceTree = "<group>"; };
 		ABE622E38EE32188F5CDCFA7 /* Pods-BLEStudy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLEStudy.debug.xcconfig"; path = "Target Support Files/Pods-BLEStudy/Pods-BLEStudy.debug.xcconfig"; sourceTree = "<group>"; };
 		D3D8C1D719CE26495085BE0C /* Pods_BLEStudy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BLEStudy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -57,7 +57,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				955F81B1280CF07600E4AEA8 /* Analyze.framework in Frameworks */,
-				95D3AC9F27D48E85003F4C64 /* libBLE.a in Frameworks */,
 				C993D14590B75B0F1F27F842 /* Pods_BLEStudy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -144,9 +143,8 @@
 		95D3AC9927D48CB5003F4C64 /* BLE */ = {
 			isa = PBXGroup;
 			children = (
-				95D3ACA127D4995F003F4C64 /* BLEDevice.h */,
-				95D3AC9B27D48CC0003F4C64 /* libBLE.a */,
-				95D3ACA227D49970003F4C64 /* BLEDelegate.h */,
+				95D4D3D3281785DF0082ADC4 /* BLEDelegate.swift */,
+				95D4D3D2281785DF0082ADC4 /* BLEDevice.swift */,
 			);
 			path = BLE;
 			sourceTree = "<group>";
@@ -283,6 +281,8 @@
 				9560158C2809039C00F68F66 /* GraphScene.swift in Sources */,
 				9546F15628050A8A00D102BC /* BLEManager.swift in Sources */,
 				956015872809021100F68F66 /* EEGStatus.swift in Sources */,
+				95D4D3D4281785DF0082ADC4 /* BLEDevice.swift in Sources */,
+				95D4D3D5281785DF0082ADC4 /* BLEDelegate.swift in Sources */,
 				95D3AC8727D48C23003F4C64 /* SceneDelegate.swift in Sources */,
 				9546F1542805087C00D102BC /* DeviceSelectTableViewController.swift in Sources */,
 			);

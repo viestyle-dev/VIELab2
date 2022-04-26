@@ -10,7 +10,7 @@ import Foundation
 class BLEManager {
     static var shared = BLEManager()
     
-    var bleDevice = BLEDevice.sharedInstance()!
+    var bleDevice = BLEDevice.shared
     
     // 選択したデバイス
     var selectedDeviceID: String?

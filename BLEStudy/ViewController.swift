@@ -69,14 +69,19 @@ class ViewController: UIViewController {
     }
     var leftSQValue: Int32 = 200 {
         didSet {
-            leftSQLabel.text = "LeftSQ : \(oldValue)"
+            DispatchQueue.main.async {
+                self.leftSQLabel.text = "LeftSQ : \(oldValue)"
+            }
         }
     }
     var rightSQValue: Int32 = 200 {
         didSet {
-            rightSQLabel.text = "RightSQ : \(oldValue)"
+            DispatchQueue.main.async {
+                self.rightSQLabel.text = "RightSQ : \(oldValue)"
+            }
         }
     }
+    var isHpf: Bool = true
     var rightEEGSamples = [Int32](repeating: 0, count: 600)
     var leftEEGSamples = [Int32](repeating: 0, count: 600)
     
@@ -87,7 +92,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        BLEDevice.sharedInstance().delegate = self
+        BLEDevice.shared.delegate = self
         analyze.delegate = self
         
         // Setup UI
@@ -95,6 +100,7 @@ class ViewController: UIViewController {
         clearBtn.isEnabled = false
         hpfPickerView.delegate = self
         hpfPickerView.dataSource = self
+        isHpf = hpfSwitch.isOn
         
         // Setup eeg values
         let rightValues = rightEEGSamples.map { Float($0) }
@@ -204,6 +210,7 @@ class ViewController: UIViewController {
     @IBAction func toggleHpfSwitch(_ sender: UISwitch) {
         let selectedRow = hpfPickerView.selectedRow(inComponent: 0)
         let hpfValue = hpfValues[selectedRow]
+        isHpf = sender.isOn
         if sender.isOn {
             setFilter(value: hpfValue)
             print("HPF ON Value : \(hpfValue)")
@@ -245,12 +252,7 @@ class ViewController: UIViewController {
 // MARK: - BLEデバイスのコールバック
 extension ViewController: BLEDelegate {
     /// アドバタイズしているデバイスを見つける
-    func deviceFound(_ devName: String!, mfgID: String!, deviceID: String!) {
-        guard let devName = devName,
-              let mfgID = mfgID,
-              let deviceID = deviceID else {
-            return
-        }
+    func deviceFound(devName: String, mfgID: String, deviceID: String) {
         
         BLEManager.shared.update(name: devName, uuidStr: deviceID)
         
@@ -295,7 +297,7 @@ extension ViewController: BLEDelegate {
         var rightValue = right
         
         // Filter
-        if hpfSwitch.isOn {
+        if isHpf {
             leftValue = analyze.doHpfLeft(leftValue)
             rightValue = analyze.doHpfRight(rightValue)
         }
