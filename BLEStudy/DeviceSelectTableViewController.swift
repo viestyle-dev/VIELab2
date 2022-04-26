@@ -58,8 +58,8 @@ class DeviceSelectTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
         let deviceID = BLEManager.shared.discoverDeivices[indexPath.row]
-//        let deviceName = foundDevices[deviceID] ?? "VIE-10004 [Unknown UUID]"
-        cell.textLabel?.text = deviceID
+        let deviceName = "VIE-10004 [\(deviceID.prefix8)]"
+        cell.textLabel?.text = deviceName
 
         return cell
     }
