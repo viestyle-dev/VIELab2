@@ -18,7 +18,6 @@ class GraphScene: SKScene {
         view.preferredFramesPerSecond = 60
         scene?.backgroundColor = .black
         
-        print("frame : \(view.frame), bounds: \(view.bounds)")
         viewHeight = Float(view.frame.height) * 0.5
     }
     

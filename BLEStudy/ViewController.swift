@@ -363,7 +363,6 @@ extension ViewController: BLEDelegate {
     
     /// センサーの状態が変化した時のコールバック
     func sensorStatus(_ status: Int32) {
-        print("Sensor status : \(status)")
         var left: Int32 = 1
         var right: Int32 = 1
         switch (status) {
@@ -385,7 +384,6 @@ extension ViewController: BLEDelegate {
     
     /// バッテリー
     func battery(_ percent: Int32) {
-        print("Battery : \(percent)")
         batteryLabelText = "Battery : \(percent) [%]"
     }
 }
