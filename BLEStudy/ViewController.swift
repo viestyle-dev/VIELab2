@@ -25,8 +25,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var hpfPickerView: UIPickerView!
     let hpfValues: [Double] = Array(stride(from: 0.5, to: 20.5, by: 0.5))
     
+    @IBOutlet weak var labelSwitch: UISwitch!
+    @IBOutlet weak var labelLabel: UILabel!
+    
     @IBOutlet weak var deviceNameLabel: UILabel!
-    @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var batteryLabel: UILabel!
     @IBOutlet weak var leftValueLabel: UILabel!
     @IBOutlet weak var rightValueLabel: UILabel!
@@ -44,13 +46,6 @@ class ViewController: UIViewController {
         willSet {
             DispatchQueue.main.async {
                 self.batteryLabel.text = newValue
-            }
-        }
-    }
-    var statusLabelText: String = "Status : NotConnected" {
-        willSet {
-            DispatchQueue.main.async {
-                self.statusLabel.text = newValue
             }
         }
     }
@@ -79,6 +74,20 @@ class ViewController: UIViewController {
         didSet {
             DispatchQueue.main.async {
                 self.rightSQLabel.text = "RightSQ : \(oldValue)"
+            }
+        }
+    }
+    var labelLabelText: String = "Label0" {
+        willSet {
+            DispatchQueue.main.async {
+                self.labelLabel.text = newValue
+            }
+        }
+    }
+    var trainLabelType: TrainLabelType = .zero {
+        willSet {
+            DispatchQueue.main.async {
+                self.labelLabel.text = "Label\(newValue.rawValue)"
             }
         }
     }
@@ -216,6 +225,14 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func toggleLabelSwitch(_ sender: UISwitch) {
+        if sender.isOn {
+            trainLabelType = .one
+        } else {
+            trainLabelType = .zero
+        }
+    }
+    
     // MARK: - Utils
     /// グラフを更新
     func updateGraph() {
@@ -317,7 +334,6 @@ extension ViewController: BLEDelegate {
     /// センサーの状態が変化した時のコールバック
     func sensorStatus(_ status: Int32) {
         print("Sensor status : \(status)")
-        statusLabelText = "Status : \(EEGStatus.get(rawValue: UInt8(status)).description)"
         var left: Int32 = 1
         var right: Int32 = 1
         switch (status) {
