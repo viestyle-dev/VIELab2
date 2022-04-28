@@ -34,6 +34,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var rightValueLabel: UILabel!
     @IBOutlet weak var leftSQLabel: UILabel!
     @IBOutlet weak var rightSQLabel: UILabel!
+    @IBOutlet weak var recordingLabel: UILabel!
     
     var deviceNameLabelText: String = "DeviceName : " {
         willSet {
@@ -109,6 +110,7 @@ class ViewController: UIViewController {
         analyze.delegate = self
         
         // Setup UI
+        recordingLabel.isHidden = true
         startBtn.isEnabled = false
         recordBtn.isEnabled = false
         hpfPickerView.delegate = self
@@ -219,6 +221,7 @@ class ViewController: UIViewController {
         if eegLogger.isRecord {
             startRecording()
             recordBtn.setTitle("Stop Record", for: .normal)
+            recordBtn.setTitleShadowColor(.red, for: .normal)
         } else {
             stopRecording()
             recordBtn.setTitle("Record", for: .normal)
@@ -277,6 +280,7 @@ class ViewController: UIViewController {
     /// 録音開始
     func startRecording() {
         eegLogger.startRecording()
+        recordingLabel.isHidden = false
         print("start recording")
         
     }
@@ -284,6 +288,7 @@ class ViewController: UIViewController {
     /// 録音停止
     func stopRecording() {
         eegLogger.stopRecording()
+        recordingLabel.isHidden = true
         print("stop recording")
         
     }
