@@ -323,7 +323,7 @@ extension ViewController: BLEDelegate {
         updateGraph()
         
         // send osc
-        let message = F53OSCMessage(addressPattern: "/brain", arguments: [leftValue, rightValue])
+        let message = F53OSCMessage(addressPattern: "/brain", arguments: [leftValue, rightValue, trainLabelType.rawValue])
         oscClient.send(message)
         
         // Update analyze
