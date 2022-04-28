@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var scanBtn: UIButton!
     @IBOutlet weak var connectBtn: UIButton!
     @IBOutlet weak var startBtn: UIButton!
-    @IBOutlet weak var clearBtn: UIButton!
+    @IBOutlet weak var recordBtn: UIButton!
     
     @IBOutlet weak var hpfSwitch: UISwitch!
     @IBOutlet weak var hpfPickerView: UIPickerView!
@@ -95,6 +95,9 @@ class ViewController: UIViewController {
     var rightEEGSamples = [Int32](repeating: 0, count: 600)
     var leftEEGSamples = [Int32](repeating: 0, count: 600)
     
+    // csvで書き出すようのオブジェクト
+    let eegLogger = EEGLogger()
+    
     let oscClient = F53OSCClient.init()
     let analyze = Analyze.sharedInstance()!
     
@@ -107,7 +110,7 @@ class ViewController: UIViewController {
         
         // Setup UI
         startBtn.isEnabled = false
-        clearBtn.isEnabled = false
+        recordBtn.isEnabled = false
         hpfPickerView.delegate = self
         hpfPickerView.dataSource = self
         isHpf = hpfSwitch.isOn
@@ -200,16 +203,26 @@ class ViewController: UIViewController {
         let isStarted = BLEManager.shared.toggleStart()
         if isStarted {
             startBtn.setTitle("Stop", for: .normal)
+            recordBtn.isEnabled = true
         } else {
             startBtn.setTitle("Start", for: .normal)
+            recordBtn.setTitle("Record", for: .normal)
+            recordBtn.isEnabled = false
+            stopRecording()
         }
     }
     
     /// ストップボタン押下
-    @IBAction func onTapClearBtn(_ sender: UIButton) {
-        print("on tap clear")
-        BLEManager.shared.clear()
-        deviceNameLabelText = "DeviceName : Unknown"
+    @IBAction func onTapRecordBtn(_ sender: UIButton) {
+        print("on tap Record")
+        eegLogger.isRecord.toggle()
+        if eegLogger.isRecord {
+            startRecording()
+            recordBtn.setTitle("Stop Record", for: .normal)
+        } else {
+            stopRecording()
+            recordBtn.setTitle("Record", for: .normal)
+        }
     }
     
     @IBAction func toggleHpfSwitch(_ sender: UISwitch) {
@@ -259,6 +272,20 @@ class ViewController: UIViewController {
     func setFilter(value: Double) {
         analyze.reset()
         analyze.enableHPFFilter(value)
+    }
+    
+    /// 録音開始
+    func startRecording() {
+        eegLogger.startRecording()
+        print("start recording")
+        
+    }
+    
+    /// 録音停止
+    func stopRecording() {
+        eegLogger.stopRecording()
+        print("stop recording")
+        
     }
 }
 
@@ -325,6 +352,9 @@ extension ViewController: BLEDelegate {
         // send osc
         let message = F53OSCMessage(addressPattern: "/brain", arguments: [leftValue, rightValue, trainLabelType.rawValue])
         oscClient.send(message)
+        
+        // csv log update
+        eegLogger.update(eegValue: EEGValue(left: leftValue, right: rightValue, label: trainLabelType))
         
         // Update analyze
         analyze.update(withRawDataLeft: Double(leftValue))

@@ -17,6 +17,9 @@
 		9560158E2809081300F68F66 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9560158D2809081300F68F66 /* Utils.swift */; };
 		956015902809127300F68F66 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9560158F2809127300F68F66 /* Settings.bundle */; };
 		9589EB9A281A3A3A00B70B8F /* TrainLabelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9589EB99281A3A3A00B70B8F /* TrainLabelType.swift */; };
+		9589EB9D281A54E500B70B8F /* FileExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9589EB9C281A54E500B70B8F /* FileExporter.swift */; };
+		9589EB9F281A559E00B70B8F /* EEGLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9589EB9E281A559E00B70B8F /* EEGLogger.swift */; };
+		9589EBA1281A562700B70B8F /* EEGValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9589EBA0281A562700B70B8F /* EEGValue.swift */; };
 		95D3AC8527D48C23003F4C64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D3AC8427D48C23003F4C64 /* AppDelegate.swift */; };
 		95D3AC8727D48C23003F4C64 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D3AC8627D48C23003F4C64 /* SceneDelegate.swift */; };
 		95D3AC8927D48C23003F4C64 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D3AC8827D48C23003F4C64 /* ViewController.swift */; };
@@ -37,6 +40,9 @@
 		9560158D2809081300F68F66 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		9560158F2809127300F68F66 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		9589EB99281A3A3A00B70B8F /* TrainLabelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainLabelType.swift; sourceTree = "<group>"; };
+		9589EB9C281A54E500B70B8F /* FileExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileExporter.swift; sourceTree = "<group>"; };
+		9589EB9E281A559E00B70B8F /* EEGLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EEGLogger.swift; sourceTree = "<group>"; };
+		9589EBA0281A562700B70B8F /* EEGValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EEGValue.swift; sourceTree = "<group>"; };
 		95D3AC8127D48C23003F4C64 /* BLEStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLEStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95D3AC8427D48C23003F4C64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95D3AC8627D48C23003F4C64 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +96,14 @@
 			path = Graph;
 			sourceTree = "<group>";
 		};
+		9589EB9B281A54D500B70B8F /* FileExporter */ = {
+			isa = PBXGroup;
+			children = (
+				9589EB9C281A54E500B70B8F /* FileExporter.swift */,
+			);
+			path = FileExporter;
+			sourceTree = "<group>";
+		};
 		95D3AC7827D48C23003F4C64 = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +126,7 @@
 		95D3AC8327D48C23003F4C64 /* BLEStudy */ = {
 			isa = PBXGroup;
 			children = (
+				9589EB9B281A54D500B70B8F /* FileExporter */,
 				955F81AF280CF07600E4AEA8 /* Analyze */,
 				956015882809039C00F68F66 /* Graph */,
 				95D3AC9827D48C4B003F4C64 /* Resources */,
@@ -122,6 +137,8 @@
 				9546F1532805087C00D102BC /* DeviceSelectTableViewController.swift */,
 				9546F15528050A8A00D102BC /* BLEManager.swift */,
 				956015862809021100F68F66 /* EEGStatus.swift */,
+				9589EB9E281A559E00B70B8F /* EEGLogger.swift */,
+				9589EBA0281A562700B70B8F /* EEGValue.swift */,
 				9560158D2809081300F68F66 /* Utils.swift */,
 				95D3AC8A27D48C23003F4C64 /* Main.storyboard */,
 				95D3AC8D27D48C24003F4C64 /* Assets.xcassets */,
@@ -270,13 +287,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				95D3AC8927D48C23003F4C64 /* ViewController.swift in Sources */,
+				9589EBA1281A562700B70B8F /* EEGValue.swift in Sources */,
 				95D3AC8527D48C23003F4C64 /* AppDelegate.swift in Sources */,
 				9560158E2809081300F68F66 /* Utils.swift in Sources */,
 				9560158B2809039C00F68F66 /* GraphView.swift in Sources */,
 				9560158C2809039C00F68F66 /* GraphScene.swift in Sources */,
 				9546F15628050A8A00D102BC /* BLEManager.swift in Sources */,
 				956015872809021100F68F66 /* EEGStatus.swift in Sources */,
+				9589EB9F281A559E00B70B8F /* EEGLogger.swift in Sources */,
 				95D3AC8727D48C23003F4C64 /* SceneDelegate.swift in Sources */,
+				9589EB9D281A54E500B70B8F /* FileExporter.swift in Sources */,
 				9546F1542805087C00D102BC /* DeviceSelectTableViewController.swift in Sources */,
 				9589EB9A281A3A3A00B70B8F /* TrainLabelType.swift in Sources */,
 			);
@@ -438,6 +458,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BLEStudy/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = OSCSender;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -483,6 +504,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BLEStudy/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = OSCSender;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;

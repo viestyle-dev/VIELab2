@@ -16,3 +16,19 @@ extension String {
         return String(self[...self.index(self.startIndex, offsetBy: 7)])
     }
 }
+
+extension DateFormatter {
+    static var basic: DateFormatter {
+        let f = DateFormatter()
+        f.timeStyle = .medium
+        f.dateStyle = .short
+        f.locale = Locale(identifier: "ja_JP")
+        return f
+    }
+    
+    static var fileName: DateFormatter {
+        let f = DateFormatter()
+        f.dateFormat = "yyyyMMdd_HHmmss"
+        return f
+    }
+}

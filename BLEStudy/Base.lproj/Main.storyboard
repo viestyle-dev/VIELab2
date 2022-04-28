@@ -58,9 +58,9 @@
                                             <constraint firstAttribute="width" constant="120" id="gpB-ii-QE1"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Clear"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Record"/>
                                         <connections>
-                                            <action selector="onTapClearBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Npk-I1-dAb"/>
+                                            <action selector="onTapRecordBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cME-Sp-nVt"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name : Unknown" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QsO-gg-fL5">
@@ -247,7 +247,6 @@
                     </view>
                     <connections>
                         <outlet property="batteryLabel" destination="EFq-Je-2w8" id="TRf-kr-hNe"/>
-                        <outlet property="clearBtn" destination="Zlv-QB-RrB" id="OW8-Ph-KoK"/>
                         <outlet property="connectBtn" destination="PEo-Fi-pV2" id="BmF-r5-jeg"/>
                         <outlet property="deviceNameLabel" destination="QsO-gg-fL5" id="gfp-yy-Xxq"/>
                         <outlet property="hpfPickerView" destination="3T3-hj-2hM" id="Hl0-iU-Mas"/>
@@ -257,6 +256,7 @@
                         <outlet property="leftGraphView" destination="4Ti-U3-WBN" id="gCn-TI-3ZK"/>
                         <outlet property="leftSQLabel" destination="5az-7B-0kS" id="q3g-cC-UJu"/>
                         <outlet property="leftValueLabel" destination="vNw-Uw-MrB" id="m25-di-Iik"/>
+                        <outlet property="recordBtn" destination="Zlv-QB-RrB" id="3eT-jy-sXu"/>
                         <outlet property="rightGraphView" destination="6e4-m8-K8u" id="0Xp-iI-AxT"/>
                         <outlet property="rightSQLabel" destination="Z5L-zm-7ms" id="bST-l5-301"/>
                         <outlet property="rightValueLabel" destination="yEo-dl-JBn" id="PMU-LB-zwB"/>
