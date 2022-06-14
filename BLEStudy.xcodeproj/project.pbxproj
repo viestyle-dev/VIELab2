@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		951BEDE72817E33700225917 /* BLEDevicePackage in Frameworks */ = {isa = PBXBuildFile; productRef = 951BEDE62817E33700225917 /* BLEDevicePackage */; };
+		9532918128586CDA002E85B1 /* BLEDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9532917F28586CDA002E85B1 /* BLEDelegate.swift */; };
+		9532918228586CDA002E85B1 /* BLEDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9532918028586CDA002E85B1 /* BLEDevice.swift */; };
 		9546F1542805087C00D102BC /* DeviceSelectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9546F1532805087C00D102BC /* DeviceSelectTableViewController.swift */; };
 		9546F15628050A8A00D102BC /* BLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9546F15528050A8A00D102BC /* BLEManager.swift */; };
 		955F81B1280CF07600E4AEA8 /* Analyze.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 955F81B0280CF07600E4AEA8 /* Analyze.framework */; };
@@ -26,11 +27,12 @@
 		95D3AC8C27D48C23003F4C64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95D3AC8A27D48C23003F4C64 /* Main.storyboard */; };
 		95D3AC8E27D48C24003F4C64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95D3AC8D27D48C24003F4C64 /* Assets.xcassets */; };
 		95D3AC9127D48C24003F4C64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95D3AC8F27D48C24003F4C64 /* LaunchScreen.storyboard */; };
-		C993D14590B75B0F1F27F842 /* Pods_BLEStudy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3D8C1D719CE26495085BE0C /* Pods_BLEStudy.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		25C9FEB0351E5CF0F1437F7D /* Pods-BLEStudy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLEStudy.release.xcconfig"; path = "Target Support Files/Pods-BLEStudy/Pods-BLEStudy.release.xcconfig"; sourceTree = "<group>"; };
+		9532917F28586CDA002E85B1 /* BLEDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEDelegate.swift; sourceTree = "<group>"; };
+		9532918028586CDA002E85B1 /* BLEDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEDevice.swift; sourceTree = "<group>"; };
 		9546F1532805087C00D102BC /* DeviceSelectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceSelectTableViewController.swift; sourceTree = "<group>"; };
 		9546F15528050A8A00D102BC /* BLEManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEManager.swift; sourceTree = "<group>"; };
 		955F81B0280CF07600E4AEA8 /* Analyze.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Analyze.framework; sourceTree = "<group>"; };
@@ -61,8 +63,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				955F81B1280CF07600E4AEA8 /* Analyze.framework in Frameworks */,
-				C993D14590B75B0F1F27F842 /* Pods_BLEStudy.framework in Frameworks */,
-				951BEDE72817E33700225917 /* BLEDevicePackage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +76,15 @@
 				25C9FEB0351E5CF0F1437F7D /* Pods-BLEStudy.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		9532917E28586CDA002E85B1 /* BLE */ = {
+			isa = PBXGroup;
+			children = (
+				9532917F28586CDA002E85B1 /* BLEDelegate.swift */,
+				9532918028586CDA002E85B1 /* BLEDevice.swift */,
+			);
+			path = BLE;
 			sourceTree = "<group>";
 		};
 		955F81AF280CF07600E4AEA8 /* Analyze */ = {
@@ -126,6 +135,7 @@
 		95D3AC8327D48C23003F4C64 /* BLEStudy */ = {
 			isa = PBXGroup;
 			children = (
+				9532917E28586CDA002E85B1 /* BLE */,
 				9589EB9B281A54D500B70B8F /* FileExporter */,
 				955F81AF280CF07600E4AEA8 /* Analyze */,
 				956015882809039C00F68F66 /* Graph */,
@@ -182,7 +192,6 @@
 			);
 			name = BLEStudy;
 			packageProductDependencies = (
-				951BEDE62817E33700225917 /* BLEDevicePackage */,
 			);
 			productName = BLEStudy;
 			productReference = 95D3AC8127D48C23003F4C64 /* BLEStudy.app */;
@@ -293,9 +302,11 @@
 				9560158B2809039C00F68F66 /* GraphView.swift in Sources */,
 				9560158C2809039C00F68F66 /* GraphScene.swift in Sources */,
 				9546F15628050A8A00D102BC /* BLEManager.swift in Sources */,
+				9532918228586CDA002E85B1 /* BLEDevice.swift in Sources */,
 				956015872809021100F68F66 /* EEGStatus.swift in Sources */,
 				9589EB9F281A559E00B70B8F /* EEGLogger.swift in Sources */,
 				95D3AC8727D48C23003F4C64 /* SceneDelegate.swift in Sources */,
+				9532918128586CDA002E85B1 /* BLEDelegate.swift in Sources */,
 				9589EB9D281A54E500B70B8F /* FileExporter.swift in Sources */,
 				9546F1542805087C00D102BC /* DeviceSelectTableViewController.swift in Sources */,
 				9589EB9A281A3A3A00B70B8F /* TrainLabelType.swift in Sources */,
@@ -564,14 +575,6 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		951BEDE62817E33700225917 /* BLEDevicePackage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 951BEDE52817E33600225917 /* XCRemoteSwiftPackageReference "BLEDevicePackage" */;
-			productName = BLEDevicePackage;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 95D3AC7927D48C23003F4C64 /* Project object */;
 }
