@@ -468,7 +468,7 @@
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BLEStudy/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = OSCSender;
+				INFOPLIST_KEY_CFBundleDisplayName = VIELab2;
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -514,7 +514,7 @@
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BLEStudy/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = OSCSender;
+				INFOPLIST_KEY_CFBundleDisplayName = VIELab2;
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
