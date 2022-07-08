@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import BLEDevicePackage
 
 class BLEManager {
     static var shared = BLEManager()
