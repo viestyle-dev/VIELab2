@@ -223,7 +223,6 @@
 			);
 			mainGroup = 95D3AC7827D48C23003F4C64;
 			packageReferences = (
-				951BEDE52817E33600225917 /* XCRemoteSwiftPackageReference "BLEDevicePackage" */,
 			);
 			productRefGroup = 95D3AC8227D48C23003F4C64 /* Products */;
 			projectDirPath = "";
@@ -461,7 +460,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0;
+				CURRENT_PROJECT_VERSION = 2;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = SXPAM65A7K;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -487,7 +486,7 @@
 					"$(PROJECT_DIR)/BLEStudy/Resources",
 					"$(PROJECT_DIR)/BLEStudy/BLE",
 				);
-				MARKETING_VERSION = v1.0.0;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = style.vie.vielab2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -507,7 +506,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0;
+				CURRENT_PROJECT_VERSION = 2;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = SXPAM65A7K;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -533,7 +532,7 @@
 					"$(PROJECT_DIR)/BLEStudy/Resources",
 					"$(PROJECT_DIR)/BLEStudy/BLE",
 				);
-				MARKETING_VERSION = v1.0.0;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = style.vie.vielab2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -566,17 +565,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		951BEDE52817E33600225917 /* XCRemoteSwiftPackageReference "BLEDevicePackage" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:viestyle-dev/BLEDevicePackage.git";
-			requirement = {
-				kind = exactVersion;
-				version = 0.1.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 95D3AC7927D48C23003F4C64 /* Project object */;
 }
