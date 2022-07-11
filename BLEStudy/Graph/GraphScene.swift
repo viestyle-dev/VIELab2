@@ -10,6 +10,7 @@ import SpriteKit
 class GraphScene: SKScene {
     
     private var values = [Float]()
+    private let maxValues = 600
 
     var viewHeight: Float!
     let maxHeight: Float = 5000
@@ -26,6 +27,10 @@ class GraphScene: SKScene {
     }
     
     override func update(_ currentTime: TimeInterval) {
+        guard values.count == maxValues else {
+            return
+        }
+        
         var points = [CGPoint]()
         for (i, value) in self.values.enumerated() {
             let ratio = value / maxHeight            
