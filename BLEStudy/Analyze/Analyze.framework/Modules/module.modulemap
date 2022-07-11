@@ -1,0 +1,6 @@
+framework module Analyze {
+  umbrella header "Analyze.h"
+
+  export *
+  module * { export * }
+}
