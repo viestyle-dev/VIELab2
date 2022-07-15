@@ -10,7 +10,7 @@ import SpriteKit
 class GraphScene: SKScene {
     
     private var values = [Float]()
-    private let maxValues = 600
+    private let maxValues = Constants.samplingRate * Constants.waveDuration
 
     var viewHeight: Float!
     let maxHeight: Float = 5000

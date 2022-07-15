@@ -92,8 +92,8 @@ class ViewController: UIViewController {
         }
     }
     var isHpf: Bool = false
-    var rightEEGSamples = [Int32](repeating: 0, count: 600)
-    var leftEEGSamples = [Int32](repeating: 0, count: 600)
+    var rightEEGSamples = [Int32](repeating: 0, count: Constants.samplingRate * Constants.waveDuration)
+    var leftEEGSamples = [Int32](repeating: 0, count: Constants.samplingRate * Constants.waveDuration)
     
     // csvで書き出すようのオブジェクト
     let eegLogger = EEGLogger()
