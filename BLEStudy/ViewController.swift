@@ -34,6 +34,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var leftSQLabel: UILabel!
     @IBOutlet weak var rightSQLabel: UILabel!
     @IBOutlet weak var recordingLabel: UILabel!
+    @IBOutlet weak var graphRangeLabel: UILabel!
+    
+    // 波形の高さ
+    var lastScale: Float = 1.0
+    var currentScale: Float = 1.0
     
     var deviceNameLabelText: String = "DeviceName : " {
         willSet {
@@ -119,8 +124,14 @@ class ViewController: UIViewController {
         // Setup eeg values
         let rightValues = rightEEGSamples.map { Float($0) }
         let leftValues = leftEEGSamples.map { Float($0) }
+        
         leftGraphView.update(values: leftValues)
         rightGraphView.update(values: rightValues)
+        
+        let leftPinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(handlePinch(gesture:)))
+        leftGraphView.addGestureRecognizer(leftPinchGesture)
+        let rightPinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(handlePinch(gesture:)))
+        rightGraphView.addGestureRecognizer(rightPinchGesture)
         
         // Handling to foreground, to background.
         NotificationCenter.default.addObserver(self,
@@ -153,6 +164,19 @@ class ViewController: UIViewController {
     @objc func didEnterBackground() {
         print("did enter background")
         stopOsc()
+    }
+    
+    // MARK: - Touch
+    @objc func handlePinch(gesture: UIPinchGestureRecognizer) {
+        let factor = Float(gesture.scale)
+        if gesture.state == .began {
+            lastScale = currentScale
+        }
+        print("pinch \(gesture.scale)")
+        currentScale = lastScale * factor;
+        leftGraphView.updateScale(scale: currentScale)
+        rightGraphView.updateScale(scale: currentScale)
+        self.graphRangeLabel.text = "\(Int(rightGraphView.yHeight ?? 5000))"
     }
     
     // MARK: - OSC

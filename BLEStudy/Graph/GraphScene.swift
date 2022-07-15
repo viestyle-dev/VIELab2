@@ -13,10 +13,24 @@ class GraphScene: SKScene {
     private let maxValues = Constants.samplingRate * Constants.waveDuration
 
     var viewHeight: Float!
-    let maxHeight: Float = 5000
+    // 波形の高さを調節
+    var scale: Float = 1.0
+    let yMaxHeight: Float = 120000
+    let yminHeight: Float = 10
+    let yDefaultHeight: Float = 5000
+    var yCurrentHeight: Float {
+        let y = yDefaultHeight / scale
+        if y > yMaxHeight {
+            return yMaxHeight
+        }
+        if y < yminHeight {
+            return yminHeight
+        }
+        return y
+    }
     
     override func didMove(to view: SKView) {
-        view.preferredFramesPerSecond = 60
+        view.preferredFramesPerSecond = 30
         scene?.backgroundColor = .black
         
         viewHeight = Float(view.frame.height) * 0.5
@@ -33,7 +47,7 @@ class GraphScene: SKScene {
         
         var points = [CGPoint]()
         for (i, value) in self.values.enumerated() {
-            let ratio = value / maxHeight            
+            let ratio = value / yCurrentHeight
             let height = viewHeight * ratio
             let point = CGPoint(x: CGFloat(i), y: CGFloat(height))
             points.append(point)

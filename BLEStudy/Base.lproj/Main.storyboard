@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -222,20 +223,36 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Graph Range" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOn-VM-WJZ">
+                                        <rect key="frame" x="180" y="10" width="100" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xOY-qI-0SL">
+                                        <rect key="frame" x="299" y="10" width="41" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="6e4-m8-K8u" secondAttribute="trailing" constant="20" id="18f-aQ-ZMz"/>
                                     <constraint firstItem="4Ti-U3-WBN" firstAttribute="height" secondItem="AkM-xq-jFC" secondAttribute="height" multiplier="0.4" id="2Xd-ie-imc"/>
+                                    <constraint firstAttribute="trailing" secondItem="QOn-VM-WJZ" secondAttribute="trailing" constant="70" id="FHW-5r-2I6"/>
                                     <constraint firstItem="4Ti-U3-WBN" firstAttribute="leading" secondItem="AkM-xq-jFC" secondAttribute="leading" constant="20" id="HKd-Vv-E0t"/>
                                     <constraint firstItem="6e4-m8-K8u" firstAttribute="leading" secondItem="AkM-xq-jFC" secondAttribute="leading" constant="20" id="LpA-0K-beV"/>
                                     <constraint firstItem="4Ti-U3-WBN" firstAttribute="top" secondItem="AkM-xq-jFC" secondAttribute="top" constant="40" id="MTO-cF-XN7"/>
+                                    <constraint firstItem="QOn-VM-WJZ" firstAttribute="centerY" secondItem="HFu-tV-ucM" secondAttribute="centerY" id="MlU-BK-Mbs"/>
                                     <constraint firstItem="6e4-m8-K8u" firstAttribute="height" secondItem="AkM-xq-jFC" secondAttribute="height" multiplier="0.4" id="NA9-qE-z2s"/>
                                     <constraint firstAttribute="trailing" secondItem="vNw-Uw-MrB" secondAttribute="trailing" constant="220" id="Nxq-jN-hud"/>
                                     <constraint firstItem="HFu-tV-ucM" firstAttribute="top" secondItem="AkM-xq-jFC" secondAttribute="top" constant="10" id="UHr-up-a5G"/>
                                     <constraint firstItem="5Nn-5Q-XVw" firstAttribute="leading" secondItem="AkM-xq-jFC" secondAttribute="leading" constant="20" id="V6z-Sm-H9w"/>
                                     <constraint firstItem="5Nn-5Q-XVw" firstAttribute="top" secondItem="4Ti-U3-WBN" secondAttribute="bottom" constant="10" id="VnP-5h-Myl"/>
                                     <constraint firstItem="vNw-Uw-MrB" firstAttribute="top" secondItem="AkM-xq-jFC" secondAttribute="top" constant="10" id="ZdY-r3-v2F"/>
+                                    <constraint firstAttribute="trailing" secondItem="xOY-qI-0SL" secondAttribute="trailing" constant="10" id="cqN-eh-l9Z"/>
+                                    <constraint firstItem="xOY-qI-0SL" firstAttribute="centerY" secondItem="HFu-tV-ucM" secondAttribute="centerY" id="lz6-OW-PwD"/>
                                     <constraint firstItem="6e4-m8-K8u" firstAttribute="top" secondItem="4Ti-U3-WBN" secondAttribute="bottom" constant="40" id="ntp-lh-aic"/>
                                     <constraint firstItem="yEo-dl-JBn" firstAttribute="top" secondItem="4Ti-U3-WBN" secondAttribute="bottom" constant="10" id="qun-0p-BV9"/>
                                     <constraint firstAttribute="trailing" secondItem="4Ti-U3-WBN" secondAttribute="trailing" constant="20" id="r7c-1y-P8d"/>
@@ -261,6 +278,7 @@
                         <outlet property="batteryLabel" destination="EFq-Je-2w8" id="TRf-kr-hNe"/>
                         <outlet property="connectBtn" destination="PEo-Fi-pV2" id="BmF-r5-jeg"/>
                         <outlet property="deviceNameLabel" destination="QsO-gg-fL5" id="gfp-yy-Xxq"/>
+                        <outlet property="graphRangeLabel" destination="xOY-qI-0SL" id="gus-UW-f4e"/>
                         <outlet property="hpfPickerView" destination="3T3-hj-2hM" id="Hl0-iU-Mas"/>
                         <outlet property="hpfSwitch" destination="xFa-0Q-wWr" id="8Td-WT-JLc"/>
                         <outlet property="labelLabel" destination="5sc-Uk-2dX" id="a83-JE-xZ1"/>

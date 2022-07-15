@@ -11,6 +11,8 @@ import SpriteKit
 class GraphView: SKView {
     
     var graphScene: GraphScene?
+    
+    var yHeight: Float?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -40,5 +42,9 @@ class GraphView: SKView {
        
         graphScene?.setValues(values: values)
     }
-
+    
+    func updateScale(scale: Float) {
+        graphScene?.scale = scale
+        yHeight = graphScene?.yCurrentHeight
+    }
 }
