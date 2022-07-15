@@ -172,7 +172,6 @@ class ViewController: UIViewController {
         if gesture.state == .began {
             lastScale = currentScale
         }
-        print("pinch \(gesture.scale)")
         currentScale = lastScale * factor;
         leftGraphView.updateScale(scale: currentScale)
         rightGraphView.updateScale(scale: currentScale)
