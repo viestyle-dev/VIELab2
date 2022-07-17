@@ -479,7 +479,7 @@
 				INFOPLIST_FILE = BLEStudy/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = VIELab2;
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
-				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Use bluetooth to receive data from the device";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -526,7 +526,7 @@
 				INFOPLIST_FILE = BLEStudy/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = VIELab2;
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
-				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Use bluetooth to receive data from the device";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
