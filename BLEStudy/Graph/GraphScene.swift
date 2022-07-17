@@ -40,7 +40,7 @@ class GraphScene: SKScene {
         // フレームレート
         view.preferredFramesPerSecond = 60
         // 背景色
-        scene?.backgroundColor = .black
+        scene?.backgroundColor = .white
         
         viewHeight = Float(view.frame.height) * 0.5
         viewWidth = Float(view.frame.width)
@@ -78,7 +78,7 @@ class GraphScene: SKScene {
         }
 
         let shapeNode = SKShapeNode(path: path.cgPath)
-        shapeNode.strokeColor = UIColor.white
+        shapeNode.strokeColor = UIColor.black
         addChild(shapeNode)
     }
 }
