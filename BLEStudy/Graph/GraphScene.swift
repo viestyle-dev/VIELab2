@@ -8,10 +8,17 @@
 import SpriteKit
 
 class GraphScene: SKScene {
-    
+    // 受け取る値の配列
     private var values = [Float]()
+    // 保持する値の最大値
     private let maxValues = Constants.samplingRate * Constants.waveDuration
-
+    // グラフを表示する時間
+    var timeDuration: Float {
+        return Float(maxValues)
+    }
+    // 画面の幅
+    var viewWidth: Float!
+    // 画面の高さ
     var viewHeight: Float!
     // 波形の高さを調節
     var scale: Float = 1.0
@@ -30,16 +37,21 @@ class GraphScene: SKScene {
     }
     
     override func didMove(to view: SKView) {
-        view.preferredFramesPerSecond = 30
+        // フレームレート
+        view.preferredFramesPerSecond = 60
+        // 背景色
         scene?.backgroundColor = .black
         
         viewHeight = Float(view.frame.height) * 0.5
+        viewWidth = Float(view.frame.width)
     }
     
+    /// 波形の値を更新
     func setValues(values: [Float]) {
         self.values = values
     }
-    
+   
+    /// 画面を更新
     override func update(_ currentTime: TimeInterval) {
         guard values.count == maxValues else {
             return
@@ -49,7 +61,8 @@ class GraphScene: SKScene {
         for (i, value) in self.values.enumerated() {
             let ratio = value / yCurrentHeight
             let height = viewHeight * ratio
-            let point = CGPoint(x: CGFloat(i), y: CGFloat(height))
+            let width = Float(i) / timeDuration * viewWidth
+            let point = CGPoint(x: CGFloat(width), y: CGFloat(height))
             points.append(point)
         }
         draw(points: points)
@@ -67,6 +80,5 @@ class GraphScene: SKScene {
         let shapeNode = SKShapeNode(path: path.cgPath)
         shapeNode.strokeColor = UIColor.white
         addChild(shapeNode)
-
     }
 }
