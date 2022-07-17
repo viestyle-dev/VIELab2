@@ -62,6 +62,17 @@ class GraphScene: SKScene {
         self.values = values
     }
     
+    /// 描画する線のX座標を計算
+    private func calcLineXPos(value: Float) -> CGFloat {
+            return CGFloat(value / timeDuration * viewWidth)
+    }
+    
+    /// 描画する線のY座標を計算
+    private func calcLineYPos(value: Float) -> CGFloat {
+        let ratio = value / yCurrentHeight
+        return CGFloat(viewHeight * ratio)
+    }
+    
     /// 画面を更新
     override func update(_ currentTime: TimeInterval) {
         guard values.count == maxValues else {
@@ -72,10 +83,9 @@ class GraphScene: SKScene {
         let path = CGMutablePath()
         path.move(to: .zero)
         for (i, value) in self.values.enumerated() {
-            let ratio = value / yCurrentHeight
-            let height = viewHeight * ratio
-            let width = Float(i) / timeDuration * viewWidth
-            let point = CGPoint(x: CGFloat(width), y: CGFloat(height))
+            let x = calcLineXPos(value: Float(i))
+            let y = calcLineYPos(value: value)
+            let point = CGPoint(x: x, y: y)
             path.addLine(to: point)
             lastPoint = point
             path.move(to: lastPoint)
