@@ -22,9 +22,13 @@ class GraphScene: SKScene {
     var viewHeight: Float!
     // 波形の高さを調節
     var scale: Float = 1.0
+    // 受け取る値で表示できる最大の値
     let yMaxHeight: Float = 120000
+    // 受け取る値で表示できる最小の値
     let yminHeight: Float = 10
+    // デフォルトの描画できる高さの幅
     let yDefaultHeight: Float = 5000
+    // 現在の描画できる高さの幅
     var yCurrentHeight: Float {
         let y = yDefaultHeight / scale
         if y > yMaxHeight {
@@ -35,12 +39,19 @@ class GraphScene: SKScene {
         }
         return y
     }
+    // 描画する線
+    var lineNode = SKShapeNode()
+    // 一時的に保持する一つ前の線の描画位置
+    var lastPoint: CGPoint = .zero
     
     override func didMove(to view: SKView) {
         // フレームレート
         view.preferredFramesPerSecond = 60
         // 背景色
         scene?.backgroundColor = .white
+        // 描画する線の色
+        lineNode.strokeColor = UIColor.black
+        addChild(lineNode)
         
         viewHeight = Float(view.frame.height) * 0.5
         viewWidth = Float(view.frame.width)
@@ -50,7 +61,7 @@ class GraphScene: SKScene {
     func setValues(values: [Float]) {
         self.values = values
     }
-   
+    
     /// 画面を更新
     override func update(_ currentTime: TimeInterval) {
         guard values.count == maxValues else {
@@ -58,18 +69,17 @@ class GraphScene: SKScene {
         }
         
         // 画面を描画
-        removeAllChildren()
-        let path = UIBezierPath()
-        path.move(to: CGPoint(x: 0, y: 0))
+        let path = CGMutablePath()
+        path.move(to: .zero)
         for (i, value) in self.values.enumerated() {
             let ratio = value / yCurrentHeight
             let height = viewHeight * ratio
             let width = Float(i) / timeDuration * viewWidth
             let point = CGPoint(x: CGFloat(width), y: CGFloat(height))
-            path.addCurve(to: point, controlPoint1: point, controlPoint2: point)
+            path.addLine(to: point)
+            lastPoint = point
+            path.move(to: lastPoint)
         }
-        let shapeNode = SKShapeNode(path: path.cgPath)
-        shapeNode.strokeColor = UIColor.black
-        addChild(shapeNode)
+        lineNode.path = path
     }
 }
