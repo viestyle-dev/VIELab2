@@ -57,26 +57,17 @@ class GraphScene: SKScene {
             return
         }
         
-        var points = [CGPoint]()
+        // 画面を描画
+        removeAllChildren()
+        let path = UIBezierPath()
+        path.move(to: CGPoint(x: 0, y: 0))
         for (i, value) in self.values.enumerated() {
             let ratio = value / yCurrentHeight
             let height = viewHeight * ratio
             let width = Float(i) / timeDuration * viewWidth
             let point = CGPoint(x: CGFloat(width), y: CGFloat(height))
-            points.append(point)
-        }
-        draw(points: points)
-    }
-    
-    func draw(points: [CGPoint]) {
-        removeAllChildren()
-        let path = UIBezierPath()
-        path.move(to: CGPoint(x: 0, y: 0))
-        
-        for point in points {
             path.addCurve(to: point, controlPoint1: point, controlPoint2: point)
         }
-
         let shapeNode = SKShapeNode(path: path.cgPath)
         shapeNode.strokeColor = UIColor.black
         addChild(shapeNode)
