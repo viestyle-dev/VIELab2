@@ -9,8 +9,6 @@ import UIKit
 
 class DeviceSelectTableViewController: UITableViewController {
     
-    var discoverDevices = [String]()
-    
     var timer: Timer?
 
     override func viewDidLoad() {
