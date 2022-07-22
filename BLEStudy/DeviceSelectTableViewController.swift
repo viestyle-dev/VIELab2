@@ -41,7 +41,7 @@ class DeviceSelectTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let deviceID = BLEManager.shared.discoverDeivices[indexPath.row]
+        let deviceID = BLEManager.shared.discoverDevices[indexPath.row]
         // 一度disconnectしてからつないでみる
         BLEManager.shared.selectedDeviceID = deviceID
         BLEManager.shared.connect()
@@ -51,13 +51,13 @@ class DeviceSelectTableViewController: UITableViewController {
 
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return BLEManager.shared.discoverDeivices.count
+        return BLEManager.shared.discoverDevices.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
-        let deviceID = BLEManager.shared.discoverDeivices[indexPath.row]
+        let deviceID = BLEManager.shared.discoverDevices[indexPath.row]
         let deviceName = "VIE-10004 [\(deviceID.prefix8)]"
         cell.textLabel?.text = deviceName
 

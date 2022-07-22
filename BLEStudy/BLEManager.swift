@@ -15,7 +15,7 @@ class BLEManager {
     // 選択したデバイス
     var selectedDeviceID: String?
     // 発見したデバイスのリスト
-    var discoverDeivices = [String]()
+    var discoverDevices = [String]()
     
     var isScanning: Bool = false
     var isConnected: Bool = false
@@ -23,17 +23,17 @@ class BLEManager {
     
     
     func clear() {
-        discoverDeivices.removeAll()
+        discoverDevices.removeAll()
         selectedDeviceID = nil
     }
     
     func update(name: String, uuidStr: String) {
-        for discoverDeivice in discoverDeivices {
+        for discoverDeivice in discoverDevices {
             if discoverDeivice == uuidStr {
                 return
             }
         }
-        discoverDeivices.append(uuidStr)
+        discoverDevices.append(uuidStr)
     }
     
     func selectDevice(deviceID: String) {
@@ -43,7 +43,7 @@ class BLEManager {
     // MARK: - BLE action
     // スキャン開始
     func scan() {
-        discoverDeivices.removeAll()
+        discoverDevices.removeAll()
         
         bleDevice.scanDevice()
     }
